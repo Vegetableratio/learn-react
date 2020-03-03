@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="search-result">
+    <div class="search-input">
+      <input type="text" placeholder="Search..."><br>
+      <label>
+        <input type="checkbox">Only show products in stock
+      </label>
+    </div>
+    <div class="table-content">
+      <div class="title">
+        <span class="name">Name</span>&emsp;&emsp;
+        <span class="price">Price</span>
+      </div>
+      <div class="product-info">
+        <div class="product-category-row"></div>
+        <div class="info">
+          <span class="name">Football</span>&emsp;&emsp;
+          <span class="price">$29.99</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let mag = [];
+    function deepFirstSearch(node) {
+      // if (node.tagName === 'A' && node.href.match(/^(ed2k:\/\/)/i)) {
+      //   console.log(node.href)
+      // }
+      if (node.children.length) {
+        Array.from(node.children).forEach(function (el) {
+          deepFirstSearch(el);
+        })
+      }
+    }
+    function wideFirstSearch(node) {
+      let queue = [];
+      while (node) {
+        // console.log(node.tagName);
+        // if (node.tagName === 'A' && node.href.match(/^(ed2k:\/\/)/i)) {
+        //   console.log(node.href)
+        // }
+        Array.from(node.children).forEach(function (el) {
+          queue.push(el);
+        });
+        node = queue.shift();
+      }
+    }
+
+    // wideFirstSearch(div)
+  </script>
+</body>
+
+</html>
